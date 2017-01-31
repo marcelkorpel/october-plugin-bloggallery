@@ -3,12 +3,12 @@
     return [
 
         'plugin' => [
-            'name'        => 'Blog + RJ Gallery',
-            'description' => 'Associate a "RJ Gallery" to a blog post',
+            'name'        => 'Blog + Light Gallery',
+            'description' => 'Associate a "Light Gallery" to a blog post',
         ],
 
         'form' => [
-            'label' => 'Select a RJGallery',
+            'label' => 'Select a Light Gallery',
             'empty' => '-- No gallery selected --'
         ]
 

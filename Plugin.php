@@ -1,6 +1,6 @@
 <?php
 
-    namespace Martin\BlogGallery;
+    namespace MarcelKorpel\BlogGallery;
 
     use System\Classes\PluginBase;
     use RainLab\Blog\Controllers\Posts as PostsController;
@@ -8,13 +8,13 @@
 
     class Plugin extends PluginBase {
 
-        public $require = ['RainLab.Blog', 'Raviraj.Rjgallery'];
+        public $require = ['RainLab.Blog', 'Rjchauhan.LightGallery'];
 
         public function pluginDetails() {
             return [
-                'name'        => 'martin.bloggallery::lang.plugin.name',
-                'description' => 'martin.bloggallery::lang.plugin.description',
-                'author'      => 'Martin M.',
+                'name'        => 'marcelkorpel.bloggallery::lang.plugin.name',
+                'description' => 'marcelkorpel.bloggallery::lang.plugin.description',
+                'author'      => 'Marcel Korpel',
                 'icon'        => 'icon-image'
             ];
         }
@@ -22,17 +22,17 @@
         public function boot(){
 
             PostModel::extend(function ($model) {
-                $model->belongsTo['rjgallery'] = ['Raviraj\Rjgallery\Models\Gallery'];
+                $model->belongsTo['lightgallery'] = ['Rjchauhan\LightGallery\Models\ImageGallery'];
             });
 
             PostsController::extendFormFields(function ($form, $model) {
                 if (!$model instanceof PostModel) return;
                 $form->addSecondaryTabFields([
-                    'rjgallery' => [
-                        'label'       => 'martin.bloggallery::lang.form.label',
+                    'lightgallery' => [
+                        'label'       => 'marcelkorpel.bloggallery::lang.form.label',
                         'tab'         => 'rainlab.blog::lang.post.tab_manage',
                         'type'        => 'relation',
-                        'emptyOption' => 'martin.bloggallery::lang.form.empty'
+                        'emptyOption' => 'marcelkorpel.bloggallery::lang.form.empty'
                     ]
                 ]);
             });
